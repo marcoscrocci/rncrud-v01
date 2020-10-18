@@ -1,0 +1,25 @@
+Notas do Projeto - nrcrud
+
+Tecnologias:
+React-Native com Hooks e Context API
+React Navigation: https://reactnavigation.org/
+React Native Elements: https://reactnativeelements.com/docs/
+
+Aulas da Cod3r
+site: https://www.cod3r.com.br/courses/take/react-native-crud/lessons/16307491-criar-projeto
+
+Criar projeto:
+npx react-native init rncrud
+cd rncrud
+
+Instalação do React Navigation: 
+npm install @react-navigation/native
+npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+npx pod-install ios
+
+npm install @react-navigation/stack
+
+Instalação do React Native Elements: 
+npm i react-native-elements --save
+npm i --save react-native-vector-icons
+react-native link react-native-vector-icons
