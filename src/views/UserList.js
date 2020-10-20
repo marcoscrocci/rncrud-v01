@@ -1,12 +1,25 @@
-import React, { useContext } from 'react'
-import { SafeAreaView, FlatList, Alert } from 'react-native'
+import React, { useContext, useState, useEffect } from 'react'
+import { SafeAreaView, FlatList, Alert, View } from 'react-native'
 import { ListItem, Button, Icon } from 'react-native-elements'
 import UsersContext from '../context/UsersContext'
+import { getUsers } from '../context/UsersActions'
 
 export default props => {
     //console.warn(Object.keys(props))
 
     const { state, dispatch } = useContext(UsersContext)
+    const [users, setUsers] = useState([])
+    const [executou, setExecutou] = useState(false)
+
+    useEffect(() => {
+        //Alert.alert('Teste')
+        //if (!executou) {
+        //    setExecutou(true)
+            getUsers(dispatch)
+
+        //}
+    }, []) // O segundo parâmetro com valor [] faz o useEffect executar uma única vez.
+
 
     function confirmUserDeletion(user) {
         Alert.alert('Excluir Usuário', 'Deseja excluir o usuário?', [
@@ -59,11 +72,13 @@ export default props => {
 
     return (
         <SafeAreaView>
-            <FlatList 
-                keyExtractor={user => user.id.toString()}
-                data={state.users}
-                renderItem={getUserItem}
-            />
+            <View>
+                <FlatList 
+                    keyExtractor={user => user.id.toString()}
+                    data={state.users}
+                    renderItem={getUserItem}
+                />
+            </View>
         </SafeAreaView>
     )
 }

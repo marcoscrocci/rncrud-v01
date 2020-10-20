@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react';
-import users from '../data/users'
+//import users from '../data/users'
 
-const initialState = { users }
+const initialState = { users: [] }
 const UsersContext = createContext({})
 
 const actions = {
@@ -25,6 +25,13 @@ const actions = {
         return {
             ...state,
             users: state.users.filter(u => u.id !== user.id)
+        }
+    },
+    getUsers(state, action) {
+        const users = action.payload
+        return {
+            ...state,
+            users: users
         }
     }
 }
