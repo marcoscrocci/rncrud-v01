@@ -23,3 +23,25 @@ Instalação do React Native Elements:
 npm i react-native-elements --save
 npm i --save react-native-vector-icons
 react-native link react-native-vector-icons
+
+Erro no XCode:
+Lexical or Preprocessor Issue
+React/RCTBridgeDelegate.h file not found
+AppDelegate.h
+
+Solução parcial: 
+1) Removi a pasta /Users/{USERNAME}/.cocoapods
+2) Na pasta do usuário, executei o comando sudo gem install cocoapods
+3) Na pasta do projeto, entrei na pasta ios e executei pod install
+
+Solucionou o erro anterior, mas gerou outro erro: 
+Uncategorized Group
+Module map file '/Users/marcoscrocci/Library/Developer/Xcode/DerivedData/rncrud-hbombxnedxyapbfrfnbbojemreob/Build/Products/Debug-iphonesimulator/YogaKit/YogaKit.modulemap' not found
+
+Solução:
+Abra <Project> / ios / <Project Name> .xcodeproj / project.pbxproj em qualquer IDE e pesquise por IPHONEOS_DEPLOYMENT_TARGET; haverá 2 deles e ambos devem ser pelo menos 11,0
+
+Problema para executar o aplicativo no iPhone
+- Abrir Ajustes > Geral > Gerenciamento de Dispositivo > Apple Development > Permitir
+
+
